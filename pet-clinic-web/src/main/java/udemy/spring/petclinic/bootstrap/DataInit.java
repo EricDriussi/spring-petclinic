@@ -6,8 +6,6 @@ import udemy.spring.petclinic.model.Owner;
 import udemy.spring.petclinic.model.Vet;
 import udemy.spring.petclinic.services.OwnerService;
 import udemy.spring.petclinic.services.VetService;
-import udemy.spring.petclinic.services.map.OwnerServiceMap;
-import udemy.spring.petclinic.services.map.VetServiceMap;
 
 @Component
 public class DataInit implements CommandLineRunner {
@@ -15,9 +13,9 @@ public class DataInit implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataInit() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataInit(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
